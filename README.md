@@ -9,6 +9,40 @@ new checkpoints. The following list provides an overview of all currently availa
 ## News
 
 
+```
+module purge
+module load stack/2024-05  gcc/13.2.0 python/3.11.6_cuda ffmpeg eth_proxy
+srun -G 1 --time=01:00:00 --mem-per-cpu=16g --pty bash
+git clone https://github.com/chadhat/stablediffusion.git
+cd stablediffusion
+python3 -m venv env
+source env/bin/activate
+pip install -U pip
+pip install -r requirements.txt
+```
+
+Testing that the environment is installed correctly
+
+```
+ipython
+torch.__file__
+torch.cuda.is_available()
+```
+
+Download the model weights
+
+```
+wget -O v2-1_768-ema-pruned.ckpt https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt?download=true
+```
+
+Running the model
+
+```
+
+```
+
+
+
 **March 24, 2023**
 
 *Stable UnCLIP 2.1*
